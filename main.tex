@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathpazo}
+%\usepackage{gensymb} % gives an error
+\usepackage{caption}
+\usepackage[toc,page]{appendix} % needed for appendices
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{colortbl} % needed for coloured columns in appendix
+\usepackage{svg}
+\usepackage{subfig}
+\usepackage{gensymb}
+\usepackage[parfill]{parskip}%https://tex.stackexchange.com/questions/40429/how-to-use-the-parskip-package-space-in-between-paragraphs
+
+\usepackage[a4paper,left=1.9cm,right=1.32cm,top=1.9cm,bottom=3.67cm]{geometry}
+
+\begin{document}
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+	\center	
+	\textsc{\LARGE University of Twente}\\[1cm] 
+	\textsc{\large Mechanical Engineering}\\[0.5cm] \HRule\\[0.4cm]
+	{\huge\bfseries Design of a 4 DOF high accuracy non-contact measurement probe}\\[0.4cm] 
+	\HRule\\[1.5cm]
+		\textsc{\large Design Principles for Precision Mechanisms }\\[0.5cm] 
+    
+\noindent \textit{Written by} \\
+M.R.G. \textsc{Hemsteede} - s1741306\\
+F.W. \textsc{Schermer} - s1723413 \\
+C. \textsc{van Boggelen} - s1691297 \\
+M.T. \textsc{Hop} - s1725092 \\
+F. \textsc{Emming} - s1600753
+
+\vfill\vfill\vfill
+	{\large\today} \vfill 
+	\end{titlepage}
+
+\tableofcontents
+\setcounter{page}{0}
+\newpage
+\input{introduction.tex}
+\newpage
+\input{concept1_conventional.tex}
+\newpage
+\input{concept2_flexures.tex}
+\newpage
+\input{concept3_combined.tex}
+\newpage
+\input{concept4_choice.tex}
+\newpage
+\input{actuators.tex}
+\newpage
+\input{final_design.tex}
+\newpage
+\input{conclusion_discussion.tex}
+\newpage
+\pagenumbering{gobble}
+\bibliographystyle{ieeetr}
+\bibliography{bronnen_handmatig.bib,michael.bib,Marvin.bib,Sjaak.bib,Casper.bib} 
+
+\newpage
+\begin{appendices} \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\input{appendices}
+\end{appendices}
+
+\end{document}

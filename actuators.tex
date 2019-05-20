@@ -1,0 +1,80 @@
+\section{Actuator choice}
+Since very high accuracies have to be met, the choice of actuator(s) is of great importance as well. Not every single actuator is able to cope with such high precision. Not only does the machine have to be able to translate, it also has to be able to rotate. Therefore the actuators will be split into two categories: translational actuators and rotational actuators.
+\subsection{Translational actuators}
+\subsubsection*{Linear electro-mechanical (EM) actuator}
+An electro-mechanical actuator is a mechanical actuator with a electric motor as control handle. Typically a mechanical actuator converts the rotary motion of the motor into translational motion. This can be done by the use of a screw for instance. Other options are belt drives, rack and pinion or other wheel and axle examples.
+
+The advantages are that it's a relatively cheap type of actuator, and that the extending and retracting-motion behaves identically, therefore it's a pretendable type of actuator. The travel range is often quite high, while high velocity and acceleration values can be achieved. It also has a high maximum pull/push force.
+
+The disadvantage is that it has lots of moving parts, which could wear out over time. Besides, the repeatability is often too bad compared to the requirements for this project.
+
+\subsubsection*{Voice Coil Motor (VCM)}
+Voice coil motors uses, as the name already suggests, a cylindrical coil in combination with a permanent magnet. The coil is free to move axially, which ensures the 1-directional translation. When applying a current, the end-effector is able to move quite accurately. Such a system has lots of similarities to loud-speakers for instance. A nice example can be found in \href{https://www.youtube.com/watch?v=BQJg7I-4620}{this link (click)}. 
+
+The advantages are a that this type of actuator has zero wear, due to the air gap in between the magnet and coil. This causes hysterysis to be neglicable. Besides, it can reach high acceleration and velocity values, with a decent travel range. Also, the weight of the actuator is relatively low.  At last, there is a possibility for position feedback.
+
+The largest disadvantage, especially in precision engineering, is the fact that VCM's do not have a perfectly linear force to travel ratio. Besides, a low mass is often required for this type of actuators, since they have to overcome the gravity.
+
+\subsubsection*{Piezoelectric actuator}
+Piezoelectric actuators make use of the special property of some materials that expand/contract when applying a voltage. This voltages can cause 1-directional movement. Very high voltages are required for small movements, which causes this type of actuator to be a short-travel-actuator.
+
+The advantages of a piezoelectric actuator are that it can reach high acceleration values, and there is an option for long-travel actuators. Besides it consumes barely any power.
+
+Eventhough the accelerations can be relatively high, the piezioelectric actuator cannot reach high velocities. This might not be a problem for this specific project though, since low speeds are required (see section \ref{sec:requirements}). A problem that might be of interest however, is the fact that it suffers from lots of hysterysis (due to the expanding), causing low repeatability.
+
+
+
+\begin{table}[h] \centering \caption{Typical specifications of several translational actuator types} \label{tab:translationalactuators}
+\begin{tabular}{l|cccc}
+Type & Range [mm] & Repeatability [$\mu$m] & Max. vel. [mm/s] & Max. force [N] \\ \hline
+EM$^{*}$            & 200 & 3 & 2000 & 123 \\
+VCM$^{**}$          & 15 & 0.5 & 750 & 20 \\
+Piezo$^{***}$       & 25 & 0.02 & 15 & 50 \\ \hline
+Max. requirement    & 10 & $\leq 1$ & 20 & n.a.
+\end{tabular}
+\caption*{$^{*}$ The linear electro-mechanical actuator used for the specs is the Parker MX Miniature Positioner \cite{ElectromechanicalOverview}. \\ $^{**}$ The voice coil actuator used for specifications is the V-277 PIMag, from PI Motion Positioning \cite{V-277Actuator}. \\ $^{***}$ The piezoelectric actuator used for specifications is the PI N-331.1x PICMAWalk Walking Drive \cite{N-331Drive}.}
+\end{table}
+
+
+
+
+
+\subsection{Rotational actuators}
+\subsubsection*{Stepper motors}
+The Stepper motor works with a finite number of small (electro)magnets, switching on and off to move the motor in discrete steps, causing its name. Often the motor should be combined with a position encoder, so the location of the motor can be determined using impulses. 
+
+One advantage of a stepper motor is the high rotational speeds which can be achieved. Also it can cope with a large range of loads, and often no feedback is needed since it's already combined in the motor.
+
+However, there is a significant drop in torque at higher speeds, causing a lack of acceleration. Furthermore, the most Stepper motors have to deal with a high backlash, which causes a low accuracy. 
+
+\subsubsection*{Servo motors}
+The often used Servo motors works with an electrical (DC) motor and some kind of gearbox to reduce the rpm, while increasing torque. It is often combined with a position encoder, just as the Stepper actuator. 
+
+The servo motors do have many advantages, for instance it has a high efficiency, can have great precision and is has an already built-in closed loop controller, which provides positional feedback. Besides, there is no torque drop at higher rotational velocities.
+
+The biggest disadvantages is that all these advantages come with a high price tag. It is way more expensive, but also more complex and and it is more prone to errors. Besides, the actuator needs an extensive tuning before first application.
+
+\subsubsection*{Piezoelectric actuator}
+The functioning of a piezoelectric actuator has been explained in the previous paragraph, so using the material property that the material expands when a voltage is applied. The only difference is that it is in the rotational degree of freedom now.
+
+
+\begin{table}[h] \centering \caption{Typical specifications of several rotational actuator types} \label{tab:rotationalactuators}
+\begin{tabular}{l|cccc}
+Type               & Range [rad] & Repeatability [$\mu$rad] & Vel. [rad/s] & Max. torque [Nm] \\ \hline
+Stepper            & $\geq\ 2\pi$ & 1.4 & 6.283 & 6 \\
+Servo              & $\geq\ 2\pi$ & 3.5 & 3.491 & 5 \\
+Piezo              & $\geq\ 2\pi$ & 6.0 & 0.785 & 0.7 \\ \hline
+Max. requirement   & 1.571        & $\leq 10$ & 3.14 & n.a.
+\end{tabular}
+\caption*{$^{*}$ The Stepper actuator used for specifications is the PI UPR-120 Ultraprecision Rotation stage \cite{UPR-120Stage}. \\ 
+$^{**}$ The Servo actuator used for specifications is the PI L-611 Precision Rotation Stage \cite{L-611Stage}. \\ 
+$^{***}$ The piezoelectric actuator used for specifications is the PI Q-632 Q-Motion® Rotation Stage \cite{Q-632Stage}.}
+\end{table}
+
+
+
+
+
+%\newpage
+%\section{Actuator calculations}
+%In order to calculate the forces needed to be achieved by the actuators, the forces in the center of gravity of the whole platform must be shifted to the point of application of the actuators. This is done by using a Jacobian 
